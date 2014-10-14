@@ -27,27 +27,27 @@ Samtools: [http://samtools.sourceforge.net/samtools.shtml](http://samtools.sourc
 
     There should now be five new versions of the file (.amb, .ann, .bwt, .pac, sa). 
 
-2. Organize your files so that they are named how you would like them.  In my case, I am going to name each barcode.    For now I will just cancatfiles with the same library and rep all in one .fq file.  In order to name the libraries in order of their barcode, I wrote a script below:
+2. Organize your files so that they are named how you would like them.  In my case, I am going to name each barcode.    For now I will just concatenate files with the same library and rep all in one .fq file.  In order to name the libraries in order of their barcode, I wrote a script below:
 
-    #!/usr/bin/env python
-    #renameFiles.py
-    #Ciera Martinez 
-    #This script takes in a .csv file as a key on how to rename files in current directory.  
+        #!/usr/bin/env python
+        #renameFiles.py
+        #Ciera Martinez 
+        #This script takes in a .csv file as a key on how to rename files in current directory.  
 
-    import os
-    import csv
+        import os
+        import csv
 
-    #open file
-    with open('lane1Key.csv','rU') as csvfile:
-            reader = csv.reader(csvfile, delimiter = ',')
-            mydict = {rows[1]:rows[0] for rows in reader}
+        #open file
+        with open('lane1Key.csv','rU') as csvfile:
+                reader = csv.reader(csvfile, delimiter = ',')
+                mydict = {rows[1]:rows[0] for rows in reader}
 
-    # renaming
-    for fileName in os.listdir( '.' ):
-        newName = mydict.get(fileName) if mydict.get(fileName) else "empty" #can not read 'typeNone' from the keys that do not have matching files.
-        list(newName)
-        #print newName
-        os.rename(fileName, newName)
+        # renaming
+        for fileName in os.listdir( '.' ):
+            newName = mydict.get(fileName) if mydict.get(fileName) else "empty" #can not read 'typeNone' from the keys that do not have matching files.
+            list(newName)
+            #print newName
+            os.rename(fileName, newName)
 
 4.  Now I need to concatenate all the reads from each specific library/rep into one file ie combine the lanes. I used this shell command to accomplish this.  I first make a key folder that contained empty names with all possible libraries.  
 
