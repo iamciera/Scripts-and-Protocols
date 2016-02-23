@@ -3,7 +3,7 @@ Scripts-and-Protocols
 
 Sinha lab community scripts and protocols. 
 
-Contibute
+Contribute
 ---------
 
 You do not need to be part of the Sinha lab to upload protocols. 
