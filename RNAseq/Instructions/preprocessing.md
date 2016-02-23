@@ -87,16 +87,16 @@ Remove the portion of the reads containing the barcode so that the reads can be 
 
 	$ for n in ./*.fq; do ~/lcm/scripts/bin/fastx_trimmer -f 5 -Q 33 -i $n -o ./BCRemoved/$n; done
 
-##2. Mike Covington 
+## 2. Mike Covington 
 
-###Mike's way
+### Mike's way
 
 You first need to switch the  columns of your BCfile.txt, because mike's program needs them a different way. Ie.
 
 ATAGG	Barcode1	
 GCTAT	Barcode2	
 
-Copy the BCfile so you don't aucutally fuck it up.
+Copy the BCfile so you don't auctually fuck it up.
 
 	cp BCfile1.txt BCfiletest.txt
 
