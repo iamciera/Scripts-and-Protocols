@@ -1,6 +1,6 @@
 # Guide to Working in iPlant
 
-##Overview
+## Overview
 
 These are the steps you must take *before* you can begin to process your data.
 
@@ -9,13 +9,13 @@ These are the steps you must take *before* you can begin to process your data.
 3.  Mount iplant Volume
 4.  Mount IRODS Volume (for data storage)
 
-#Iplant Atmosphere
+# Iplant Atmosphere
 
 Sign up for iplant using an educational e-mail.  After logging in go to Atmosphere and start an instance, in this case I used Maloof08. 
 
 Can take up to 30 min. You will get an email verifying that your instance is up and running.  Then you can proceed.
 
-##SSH connection 
+## SSH connection 
 
 There are two ways in which you can interact with your iplant enviroment. 1. Command line on your own desktop. This is faster, especially if you are familiar with command line.  I also like using this option because I have more control over my terminal appearance and keyboard shortcuts 2. The other option and more frequently used option is  to have a virtual desktop running through VNC viewer.  Overall it is easier to use the VNC viewer, mostly because you can allow programs to run without worrying about disconnecting ssh, which can stop longer programs from running. 
 
@@ -37,7 +37,7 @@ They will ask for your iplant password.
 
 Now you are remotely connected to your iplant instance.  Use normal Unix commands to navigate your instance file directory system. 
 
-##To transfer files between your computer to your iplant instance
+## To transfer files between your computer to your iplant instance
 
 To transfer files you simply use [`scp`](http://linux.die.net/man/1/scp).  
 
@@ -53,9 +53,11 @@ or if you need to do it from server to local do the opposite.
 
     scp iamciera@128.196.142.74:~/Desktop/ /Users/iamciera/Desktop/RNAseqAnalysis/sinhaLab/Barcode-tools-3.2.tgz 
 
-##How to Attach extra space to instance
+## How to Attach extra space to instance
 
-##Volumes 
+## Volumes 
+
+You can think of a volume as a hard drive you attach to your computing enviroment. Iplant will give allow you to have a certain amount of space.  The great part about volumes is that you can move the volume, with your data, from one istance to another by attaching and detaching. 
 
 [How to attach a volume](https://pods.iplantcollaborative.org/wiki/display/atmman/Attaching+a+Volume+to+an+Instance)
 
@@ -83,7 +85,7 @@ To quit
 
     command + D
 
-##IRODs ("Unlimited GB")
+## IRODs ("Unlimited GB")
 
 IRODS is where you want to backup everything.  It is a good idea to back up the raw files right away. IRODS is another file directory in which you have access to.  You mount IRODS similarly to how you would mount an iplant volume, but you access it differently, through Icommands, which is basically regular unix commands with the an "i" in front.  
 
@@ -93,7 +95,7 @@ In order to use IRODS there are two steps.
 
 [Using Icommands](https://pods.iplantcollaborative.org/wiki/display/start/Using+icommands)
 
-###Uploading multiple files or a directory (with recursion)
+### Uploading multiple files or a directory (with recursion)
 
     iput -P -V -b -r -T -X <checkpoint-file> --lfrestart <checkpoint-lf-file>  localDirectory dataDirectory
 
@@ -107,7 +109,7 @@ If you want to get files from irods simply use iget in a similar way. For exampl
 
 
 
-##FTP download of Berkeley files 
+## FTP download of Berkeley files 
 
 [*MAC FTP tutorial*](http://www.maclife.com/article/howtos/how_use_ftp_through_command_line_mac_os_x)
 
@@ -150,11 +152,11 @@ To quit the FTP connection
 
 mget * ~/Desktop
 
-##Permission settings
+## Permission settings
 
     sudo chown iamciera /home/iamciera/lcm
 
-##Running and Interacting with Processes
+## Running and Interacting with Processes
 From Vince's Book
 
 To run a program in the background include ampersand in the background.
@@ -180,7 +182,7 @@ Place in Background. To do this, we need to suspend the process, and then use th
     $ bg
     [1]+ program1 input.txt > results.txt
 
-##Running Programs where disconnecting ssh could happen
+## Running Programs where disconnecting ssh could happen
 
     disown -h a %job #maintain ownership until you disconnect.  This only works when the job is running in the background.
 
@@ -202,7 +204,7 @@ First you have to make standard error and standard out put files, then you can s
 
 Cody suggested I use [GNU Screen](http://www.gnu.org/software/screen/).  But I haven't looked into that just yet.
 
-##Basic Unix and Tools
+## Basic Unix and Tools
 
     ls -l -h #list long human readible
 
@@ -228,7 +230,7 @@ Yes. When running a command add time to the end.
 I need to seriously figure out bin and usr folders. 
 [usr_bin](http://www.linfo.org/usr_bin.html)
 
-##Permissions
+## Permissions
 
 In order to change the permission of an entire directory use chown. In the example below we are allowing to change owner recursively through all sub directories to the owner iamciera of the directory Data.
 
