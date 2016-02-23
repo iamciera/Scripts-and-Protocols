@@ -57,7 +57,7 @@ Remove adapter contamination sequences
 
 	$ python adapterEffectRemover.py 41 Nremoved.fq AdaptersRemoved.fq b #10 min
 
-	$ python ~/lcm/scripts/barcoded_data_toolbox/adapterEffectRemover.py 41 Nremoved.fq AdaptersRemoved.fq b #ciera 
+	$ python adapterEffectRemover.py 41 Nremoved.fq AdaptersRemoved.fq b #cieras specifics 
 
 FastQC on AdaptersRemoved.fq file.
 
